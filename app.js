@@ -1,4 +1,3 @@
-
 const bodyParser   = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express      = require('express');
@@ -41,17 +40,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
-
 
 
 const index = require('./routes/index');
 app.use('/', index);
 
+app.use("/login", require("./routes/login"))
+app.use("/register", require("./routes/register"))
 
 module.exports = app;
+
 
 
 ///amel changes////
@@ -61,3 +61,4 @@ app.get("/layout", function(req, res) {
 })
 
 app.listen(3000)
+
