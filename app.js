@@ -3,7 +3,6 @@ const cookieParser = require('cookie-parser');
 const express      = require('express');
 const hbs          = require('hbs');
 const mongoose     = require('mongoose');
-//const logger       = require('morgan');
 const path         = require('path');
 
 
@@ -22,7 +21,6 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 const app = express();
 
 // Middleware Setup
-//app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -54,4 +52,13 @@ app.use("/register", require("./routes/register"))
 
 module.exports = app;
 
+
+
+///amel changes////
+
+app.get("/layout", function(req, res) {
+  res.render("layout")
+})
+
 app.listen(3000)
+
