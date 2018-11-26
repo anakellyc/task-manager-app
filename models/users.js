@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/task-manager')
 const Schema   = mongoose.Schema;
 
 function capitalize (val) {
@@ -9,13 +10,12 @@ function capitalize (val) {
 }
 
 const userSchema = new Schema({
-  firstName: {Type: String, required: true, set: capitalize},
-  lastName: {Type: String, required: true, set: capitalize},
+  firstName: {type: String, required: true, set: capitalize},
+  lastName: {type: String, required: true, set: capitalize},
   email    : { type: String},
-  username : { type: String},
   password: {type: String, minlength: 8},
   avatarUrl: { type: String, default: 'images/default-avatar.png' }
 });
 
-const User = mongoose.model('User', catSchema);
+const User = mongoose.model('Users', userSchema);
 module.exports = User;
