@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 var User = require("../models/users")
 
 app.get('/', function(req, res) {
-  res.render('login')
+  res.render('login', {wrongcredentials: false})
 })
 
 app.post("/", function(req, res) {
@@ -18,11 +18,11 @@ app.post("/", function(req, res) {
     else {
       bcrypt.compare(req.body.password, result[0].password, function(err, match) {
         if (match == true) {
-        res.cookie("loggedIn", "true", {signed: true})
+        res.cookie("loggedIn", "true", {signed: true, wrongcredentials: false})
         res.render("dashboard", {loggedIn: true})
         }
         else {
-          res.render("login", {loggedIn:false})
+          res.render("login", {wrongcredentials:true})
         }
       })
     }

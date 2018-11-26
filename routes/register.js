@@ -12,13 +12,15 @@ app.post('/', function(req, res) {
   var user = new User(req.body);
   User.find({email: req.body.email})
   .then((result)=>{
+    console.log(result)
+    debugger
     if (result.length == 0) {
       bcrypt.hash(req.body.password, 5, function(err, encryptedPassword) {
         if (err) res.send("ERROR")
         else {
           User.create({
-            firstName: req.body.firstname,
-            lastName: req.body.lastname,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
             email: req.body.email,
             password: encryptedPassword,
             // avatarUrl: { ???, default: 'images/default-avatar.png' }

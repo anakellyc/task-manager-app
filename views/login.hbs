@@ -1,4 +1,10 @@
 <img src="" alt="name and logo">
+<br>
+<br>
+
+  {{#if wrongcredentials}}
+    <p>Invalid credentials</p>
+  {{/if}}
 
 <form action="/login" method="POST">
     <div>
@@ -19,6 +25,10 @@
     </div>
   </form>
 
-  {{#if loggedIn:false}}
-    <p>Invalid credentials</p>
-  {{/if}}
+  <p>Or <a href="/register">Sign Up</a>
+  <br>
+  <br>
+
+  <button type="submit">
+  <a id="logout" href="/logout">Log out</a>
+  </button>

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/task-manager')
-const Schema   = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 function capitalize (val) {
   if (typeof val !== 'string') {
@@ -17,5 +17,5 @@ const userSchema = new Schema({
   avatarUrl: { type: String, default: 'images/default-avatar.png' }
 });
 
-const User = mongoose.model('Users', userSchema);
+const User = mongoose.model('users', userSchema);
 module.exports = User;

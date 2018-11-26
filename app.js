@@ -1,13 +1,7 @@
-const bodyParser   = require('body-parser');
-const cookieParser = require('cookie-parser');
-const express      = require('express');
-const hbs          = require('hbs');
-const mongoose     = require('mongoose');
-const path         = require('path');
-
-
+//Mongoose
+const mongoose = require('mongoose')
 mongoose
-  .connect('mongodb://localhost/task-manager-app', {useNewUrlParser: true})
+  .connect('mongodb://localhost/task-manager', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -15,50 +9,52 @@ mongoose
     console.error('Error connecting to mongo', err)
   });
 
-const app_name = require('./package.json').name;
-const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
-
+// Express View engine setup
+const express = require('express');
 const app = express();
 
-// Middleware Setup
+// app.use(require('node-sass-middleware')({
+//   src:  path.join(__dirname, 'public'),
+//   dest: path.join(__dirname, 'public'),
+//   sourceMap: true
+// }));
+
+// const app_name = require('./package.json').name;
+// const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
+
+//HBS
+const hbs = require("hbs")
+hbs.registerPartials(__dirname + '/views/partials');
+
+app.set('views', __dirname + '/views');
+app.set('view engine', 'hbs');
+
+app.use(express.static("public"))
+
+// Middleware Setup - BodyParser and CookieParser
+const bodyParser   = require('body-parser');
+const cookieParser = require('cookie-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-
-// Express View engine setup
-
-app.use(require('node-sass-middleware')({
-  src:  path.join(__dirname, 'public'),
-  dest: path.join(__dirname, 'public'),
-  sourceMap: true
-}));
-      
-
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
-app.use(express.static(path.join(__dirname, 'public')));
-
-
+app.use(cookieParser('MzaP7XtPSEmbB3AiBGxkeFO1cnxr/EPsvcsLmnqG03k='))
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Task Manager App';
 
-
+//Routes
 const index = require('./routes/index');
 app.use('/', index);
 
 app.use("/login", require("./routes/login"))
 app.use("/register", require("./routes/register"))
-
-module.exports = app;
-
-
-
-///amel changes////
+app.use("/dashboard", require("./routes/dashboard"))
+app.use("/logout", require("./routes/logout"))
 
 app.get("/layout", function(req, res) {
   res.render("layout")
 })
+
+module.exports = app;
 
 app.listen(3000)
 
