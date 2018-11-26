@@ -1,8 +1,11 @@
   <h1>Sign up and get exclusive content!</h1>
   <br><br>
-    {{#if unequalPassword}}
+    {{#if existingEmail}}
+    <p>Account already registered</p>
+    {{else if unequalPassword}}
     <p>Passwords don't match</p>
-  {{/if}}
+    {{/if}}
+
   <br>
 
   <h2>Upload your photo</h2>

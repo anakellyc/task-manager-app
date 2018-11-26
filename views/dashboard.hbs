@@ -1,5 +1,25 @@
 <h1>Dashboard</h1>
-{{# each result}}
-  <h1>Hi, {{this.firstName}}</h1>
-  <img class="img-resize" src="{{this.avatarUrl}}">
-{{/each}}
+
+  {{#each result}}
+    <h1>Hi, {{this.firstName}}</h1>
+    <img class="img-resize" src="{{this.avatarUrl}}">
+  {{/each}}
+
+  {{#if result.0.projects}}
+    <p>These are your projects:</p>
+      {{#each result.0.projects}}
+      <p>{{this}}</p>
+      {{/each}}
+  {{else}}
+    <p>You don't have projects yet.</p>
+  {{/if}}
+
+  <button type="submit">
+  <a href="/search-project">Search Project</a>
+  </button>
+  <br>
+  <br>
+
+  <button type="submit">
+  <a href="/create-project">Add Project</a>
+  </button>

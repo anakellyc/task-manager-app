@@ -14,7 +14,7 @@ const userSchema = new Schema({
   lastName: {type: String, required: true, set: capitalize},
   email    : { type: String},
   password: {type: String, minlength: 8},
-  avatarUrl: { type: String, default: 'images/default-avatar.png' },
+  avatarUrl: { type: String, required: false, default: 'images/default-avatar.png' },
   projects: {type: Array},
 });
 

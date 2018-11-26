@@ -7,7 +7,7 @@ const upload = multer({ dest: './public/uploads/' });
 var User = require("../models/users")
 
 app.get('/', function(req, res) {
-  res.render('register', {unequalPassword: false})
+  res.render('register', {unequalPassword: false, existingEmail: false})
 })
 
 app.post('/', upload.single('photo'), function(req, res) {
@@ -19,14 +19,33 @@ app.post('/', upload.single('photo'), function(req, res) {
         bcrypt.hash(req.body.password, 5, function(err, encryptedPassword) {
           if (err) res.send("ERROR")
           else {
+            if (req.file) {
+              User.create({
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                email: req.body.email,
+                password: encryptedPassword,
+                avatarUrl: `/uploads/${req.file.filename}`
+              }) 
+              .then((result)=>{
+                debugger
+                res.cookie("loggedIn", "true", {signed: true, unequalPassword: false})
+                res.render("dashboard", {loggedIn: true, result: result[0]})
+              })
+              .catch((err)=>{
+                res.end("ERROR", err)
+              })
+            
+            }
+            else {
             User.create({
               firstName: req.body.firstName,
               lastName: req.body.lastName,
               email: req.body.email,
               password: encryptedPassword,
-              avatarUrl: `/uploads/${req.file.filename}`
             }) 
             .then((result)=>{
+              debugger
               res.cookie("loggedIn", "true", {signed: true, unequalPassword: false})
               res.render("dashboard", {loggedIn: true, result: result})
             })
@@ -34,6 +53,7 @@ app.post('/', upload.single('photo'), function(req, res) {
               res.end("ERROR", err)
             })
           }
+        }
         });
       }
       else {
@@ -41,7 +61,7 @@ app.post('/', upload.single('photo'), function(req, res) {
       }
     }
     else {
-      res.render("register", {loggedIn: false})
+      res.render("register", {loggedIn: false, existingEmail: true})
     }
   })
 })
