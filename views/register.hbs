@@ -1,36 +1,32 @@
-  <h1>Sign up and get exclusive content!</h1>
-  <br><br>
-  <form action="register" method="POST">
-
-    <div>
-      <label for="firstName">Name</label>
-      <input type="text" name="firstName" placeholder="name">
+  
+  <div class="container d-flex justify-content-center">
+    <div class="register">
+      <h1>Sign up and become a pro in management!</h1>
     </div>
-    <br>
 
-    <div>
-      <label for="lastName">Surname</label>
-      <input type="text" name="lastName" placeholder="surname">
-    </div>
-    <br>
+    <div class="register">
+      <form action="register" method="POST">
+        
+          <label for="firstName">Name</label><br>
+          <input class="btn-block" type="text" name="firstName" placeholder="name">
+        
+          <label for="lastName">Surname</label><br>
+          <input class="btn-block" type="text" name="lastName" placeholder="surname">
+        
+          <label for="email">Email</label><br>
+          <input class="btn-block" type="text" name="email" placeholder="email">
+        
+          <label for="password">Password</label><br>
+          <input class="btn-block" type="password" name="password" placeholder="password">
 
-    <div>
-      <label for="email">Email</label>
-      <input type="text" name="email" placeholder="email">
-    </div>
-    <br>
+        {{!-- <div>
+          <label for="confpassword">Confirm Password</label>
+          <input type="password" name="confpassword" placeholder="confirm password">
+        </div>
+        <br> --}}
 
-    <div>
-      <label for="password">Password</label>
-      <input type="password" name="password" placeholder="password">
-    </div>
-    <br>
+        <input class="btn btn-outline-dark btn-block" type="submit" value="Create">
+      </form>
+  </div>
 
-    {{!-- <div>
-      <label for="confpassword">Confirm Password</label>
-      <input type="password" name="confpassword" placeholder="confirm password">
-    </div>
-    <br> --}}
-
-    <input class="small-button" type="submit" value="submit">
-  </form>
+  </div>

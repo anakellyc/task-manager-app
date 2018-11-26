@@ -1,34 +1,29 @@
-<img src="" alt="name and logo">
-<br>
-<br>
 
-  {{#if wrongcredentials}}
-    <p>Invalid credentials</p>
-  {{/if}}
+<div class="container d-flex justify-content-center">
+  <div>
+    {{#if wrongcredentials}}
+      <p>Invalid credentials</p>
+    {{/if}}
 
-<form action="/login" method="POST">
-    <div>
-      <label for="email">Email</label>
-      <input id="email" type="text" name="email" placeholder="email">
-    </div>
-    <br>
-    <div>
-      <label for="password">Password</label>
-      <input id="password" type="password" name="password" placeholder="password">
-    </div>
-    <br>
-    <div>
-      <button type="submit">
-        Login
-      </button>
-      {{!-- or <a href="signup">Sign up</a> --}}
-    </div>
-  </form>
+    <form action="/login" method="POST">
+      <label for="email">Email</label><br>
+      <input class="btn-block" id="email" type="text" name="email" placeholder="email">
+    
+      <label for="password">Password</label><br>
+      <input class="btn-block" id="password" type="password" name="password" placeholder="password">
+  
+      <button type="submit" class="btn btn-outline-dark btn-block">Login</button>
+    
+      <p class="d-flex justify-content-center">- or -</p>
+      <button class="btn btn-outline-dark btn-block"><a href="/register">Sign Up</a></button>
+    </form>
+  </div>
 
-  <p>Or <a href="/register">Sign Up</a>
-  <br>
-  <br>
+  <div class="logo">
+    <img  src="/images/logo.png" alt="name and logo">
+    <h1>task'em</h1>
+  </div>
 
-  <button type="submit">
-  <a id="logout" href="/logout">Log out</a>
-  </button>
+  
+
+</div>

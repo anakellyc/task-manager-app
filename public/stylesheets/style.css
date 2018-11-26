@@ -1,6 +1,11 @@
 body {
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 900;
+  color: rgb(74, 71, 71);
+}
+div {
+  margin: 10px;
+  /* border: 1px red solid */
 }
 nav {
   border-radius: 200px 200px 200px 200px;
@@ -8,12 +13,50 @@ nav {
 }
 ul {
   list-style: none;
-  display: inline;
 }
 .container {
   margin-bottom: 0;
   border-radius: 22px 22px 22px 22px;
+  display: flex;
 }
 #container {
   margin-top: 10px;
+}
+.logo {
+  color: red;
+  font-family: 'Black Han Sans', sans-serif;
+  text-align: center;
+}
+.logo h1 {
+  font-size: 30px;
+}
+input {
+  border-radius: 22px 22px 22px 22px;
+  border: none;
+  padding-left: 20px;
+  margin: 6px 0;
+  height: 40px;
+}
+input:focus {
+  outline: none;
+  padding-left: 20px;
+}
+.btn {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.btn-block {
+  border-radius: 22px 22px 22px 22px;
+}
+.btn-block:hover {
+  color: red;
+}
+a {
+  color:inherit
+}
+a:hover {
+  text-decoration: none;
+  color: red
+}
+.register {
+  width: 50%;
 }
