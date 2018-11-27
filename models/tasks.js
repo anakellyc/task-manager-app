@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/task-manager')
 const Schema   = mongoose.Schema;
 
 function capitalize (val) {

@@ -1,37 +1,41 @@
 
 <div class="container-fluid">
-  <div class=" bg row">
+  <div class="container-fluid">
     {{#each result}}
+      {{!-- <h2>Hi,</h2> --}}
       <h1>Hi, {{this.firstName}}</h1>
       <img class="img-resize" src="{{this.avatarUrl}}">
     {{/each}}
 
     {{#if result.0.projects}}
-      <p>These are your projects:</p>
-        {{#each result.0.projects}}
-        <p>{{this}}</p>
-        {{/each}}
-    {{else}}
-      <p class="row">Take action! Make a project! :)</p>
-    {{/if}}
+    <p>These are your projects:</p>
+      
+      {{#each result.0.projects}}
+      <br>
+      <p>{{this}}&nbsp&nbsp&nbsp&nbsp<br></p>
+      <br>
+      {{/each}}
+  {{else}}
+    <p>You don't have projects yet.</p>
+  {{/if}}
   </div>
 
 
   <div class="container-fluid d-flex justify-content-center">
-    <div class="col-4">
+    <div class="col-6">
       <button class="btn btn-outline-dark btn-block" type="submit">
         <a href="/search-project">Search Project</a>
       </button>
     </div>
 
-    <div class="col-4">
+    <div class="col-6">
       <button class="btn btn-outline-dark btn-block" type="submit">
-        <a href="/create-project?user_id={{this._id}}">Add Project</a>
+        <a href="/create-project?user_id={{this._id}}">Create Project</a>
       </button>
     </div>
   </div>
 
-  <div>
-
+  <div class="container-fluid bg">
+    this is the space for showing the projects listed
   </div>
 </div>

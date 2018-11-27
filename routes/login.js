@@ -18,8 +18,10 @@ app.post("/", function(req, res) {
     else {
       bcrypt.compare(req.body.password, result[0].password, function(err, match) {
         if (match == true) {
-        res.cookie("loggedIn", "true", {signed: true, wrongcredentials: false})
-        res.render("dashboard", {loggedIn: true, result: result})
+          res.cookie("loggedIn", "true", {signed: true})
+          res.cookie("wrongcredentials", "false", {signed: true})
+          res.cookie("userId", `${result[0].id}`, {signed: true})
+          res.render("dashboard", {loggedIn: true, result: result})
         }
         else {
           res.render("login", {wrongcredentials:true})
