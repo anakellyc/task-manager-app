@@ -1,32 +1,37 @@
 
-<h1>Dashboard</h1>
+<div class="container-fluid">
+  <div class=" bg row">
+    {{#each result}}
+      <h1>Hi, {{this.firstName}}</h1>
+      <img class="img-resize" src="{{this.avatarUrl}}">
+    {{/each}}
 
-  {{#each result}}
-    <h1>Hi, {{this.firstName}}</h1>
-    <img class="img-resize" src="{{this.avatarUrl}}">
-  {{/each}}
+    {{#if result.0.projects}}
+      <p>These are your projects:</p>
+        {{#each result.0.projects}}
+        <p>{{this}}</p>
+        {{/each}}
+    {{else}}
+      <p class="row">Take action! Make a project! :)</p>
+    {{/if}}
+  </div>
 
-  {{#if result.0.projects}}
-    <p>These are your projects:</p>
-      {{#each result.0.projects}}
-      <p>{{this}}</p>
-      {{/each}}
-  {{else}}
-    <p>You don't have projects yet.</p>
-  {{/if}}
 
-  <button type="submit">
-  <a href="/search-project">Search Project</a>
-  </button>
-  <br>
-  <br>
+  <div class="container-fluid d-flex justify-content-center">
+    <div class="col-4">
+      <button class="btn btn-outline-dark btn-block" type="submit">
+        <a href="/search-project">Search Project</a>
+      </button>
+    </div>
 
-  <button type="submit">
-  <a href="/create-project?user_id={{this._id}}">Add Project</a>
-  </button>
-  <br>
-  <br>
+    <div class="col-4">
+      <button class="btn btn-outline-dark btn-block" type="submit">
+        <a href="/create-project?user_id={{this._id}}">Add Project</a>
+      </button>
+    </div>
+  </div>
 
-  <button type="submit">
-  <a id="logout" href="/logout">Log out</a>
-  </button>
+  <div>
+
+  </div>
+</div>

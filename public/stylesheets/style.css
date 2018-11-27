@@ -5,7 +5,7 @@ body {
 }
 div {
   margin: 10px;
-  /* border: 1px red solid */
+  border: 1px red solid
 }
 nav {
   border-radius: 200px 200px 200px 200px;
@@ -15,12 +15,15 @@ ul {
   list-style: none;
 }
 .container {
-  margin-bottom: 0;
+  margin-bottom: 10px;
   border-radius: 22px 22px 22px 22px;
   display: flex;
 }
 #container {
   margin-top: 10px;
+}
+.d-flex p {
+  margin-top: 16px;
 }
 .logo {
   color: red;
@@ -65,4 +68,7 @@ a:hover {
 .img-resize{
   width: 60px;
   height: 60px;
+}
+.bg {
+  background-color: aqua
 }
