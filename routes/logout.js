@@ -6,6 +6,8 @@ app.get('/', function(req, res) {
     res.clearCookie('loggedIn')
     res.clearCookie('userId')
     res.clearCookie('wrongcredentials')
+    res.clearCookie('existingproject')
+    res.clearCookie('existingtask')
     res.render('login', {loggedIn: false})
   } else {
     res.redirect("login")

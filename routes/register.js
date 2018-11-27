@@ -30,7 +30,7 @@ app.post('/', upload.single('photo'), function(req, res) {
               .then((result)=>{
                 debugger
                 res.cookie("loggedIn", "true", {signed: true, unequalPassword: false})
-                res.render("dashboard", {loggedIn: true, result: result[0]})
+                res.render("dashboard", {loggedIn: true, result: result})
               })
               .catch((err)=>{
                 res.end("ERROR", err)
@@ -47,7 +47,7 @@ app.post('/', upload.single('photo'), function(req, res) {
             .then((result)=>{
               debugger
               res.cookie("loggedIn", "true", {signed: true, unequalPassword: false})
-              res.render("dashboard", {loggedIn: true, result: result[0]})
+              res.render("dashboard", {loggedIn: true, result: result})
             })
             .catch((err)=>{
               res.end("ERROR", err)

@@ -6,17 +6,6 @@
       <h1>Hi, {{result.firstName}}</h1>
       <img class="img-resize" src="{{result.avatarUrl}}">
    
-    {{#if result.projects}}
-    <p>These are your projects:</p>
-      
-      {{#each result.projects}}
-      <br>
-      <p>{{this}}&nbsp&nbsp&nbsp&nbsp<br></p>
-      <br>
-      {{/each}}
-  {{else}}
-    <p>You don't have projects yet.</p>
-  {{/if}}
   </div>
 
 
@@ -35,6 +24,16 @@
   </div>
 
   <div class="container-fluid bg">
-    this is the space for showing the projects listed
+    {{#if result.projects}}
+    <p>These are your projects:</p>
+      
+      {{#each result.projects}}
+      <br>
+      <p>{{this.projectName}}&nbsp&nbsp&nbsp&nbsp<br></p>
+      <br>
+      {{/each}}
+  {{else}}
+    <p>You don't have projects yet.</p>
+  {{/if}}
   </div>
 </div>

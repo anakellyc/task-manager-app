@@ -51,6 +51,9 @@ app.use("/dashboard", require("./routes/dashboard"))
 app.use("/logout", require("./routes/logout"))
 app.use("/search-project", require("./routes/search-project"))
 app.use("/create-project", require("./routes/create-project"))
+app.use("/add-task", require("./routes/add-task"))
+app.use("/search-people", require("./routes/search-people"))
+
 
 app.get("/layout", function(req, res) {
   res.render("layout")

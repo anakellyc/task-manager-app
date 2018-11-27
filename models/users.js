@@ -17,7 +17,8 @@ const userSchema = new Schema({
   email    : { type: String},
   password: {type: String, minlength: 8},
   avatarUrl: { type: String, required: false, default: 'images/default-avatar.png' },
-  projects: [ { type : ObjectId, ref: "projects" } ],
+  // projects: [ { type : ObjectId, ref: "projects" } ],
+  projects: { type : Array },
 });
 
 const User = mongoose.model('users', userSchema);

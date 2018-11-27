@@ -10,10 +10,10 @@ function capitalize (val) {
 }
 
 const taskSchema = new Schema({
-  name: {Type: String, required: true, set: capitalize},
-  lenght: {Type: Number},
-  goals: { Type: String},
-  status: {Type: String}
+  taskName: {type: String, required: true, set: capitalize},
+  lenght: {type: Number},
+  goals: { type: String},
+  status: {type: String, default:"To do"}
 });
 
 const Task = mongoose.model('tasks', taskSchema);
