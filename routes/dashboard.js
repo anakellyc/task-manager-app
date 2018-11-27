@@ -4,8 +4,11 @@ var app = express()
 var User = require("../models/users")
 
 app.get('/', (req, res) => {
-  User.findOne({'_id': req.query.user_id})
+  let userId = req.signedCookies.userId
+  debugger
+  User.findOne({'_id': userId})
   .then((result) => {
+    debugger
     res.render('dashboard', {result})
   })
   .catch((error) => {

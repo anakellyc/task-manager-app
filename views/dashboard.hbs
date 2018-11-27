@@ -7,8 +7,11 @@
 
   {{#if result.0.projects}}
     <p>These are your projects:</p>
+      
       {{#each result.0.projects}}
-      <p>{{this}}</p>
+      <br>
+      <p>{{this}}&nbsp&nbsp&nbsp&nbsp<br></p>
+      <br>
       {{/each}}
   {{else}}
     <p>You don't have projects yet.</p>
@@ -21,7 +24,7 @@
   <br>
   
   <button type="submit">
-  <a href="/create-project?user_id={{this._id}}">Add Project</a>
+  <a href="/create-project">Add Project</a>
   </button>
   <br>
   <br>
