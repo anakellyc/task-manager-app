@@ -6,7 +6,6 @@
       <h1>Hi, {{result.firstName}}</h1>
       <img class="img-resize" src="{{result.avatarUrl}}">
    
-
     {{#if result.projects}}
     <p>These are your projects:</p>
       
@@ -29,7 +28,7 @@
     </div>
 
     <div class="col-6">
-      <a href="/create-project?user_id={{this._id}}">
+      <a href="/create-project">
         <button class="btn btn-outline-dark btn-block" type="submit">Create Project</button>
       </a>
     </div>
