@@ -1,8 +1,13 @@
-<h1>Dashboard</h1>
-    <h1>Hi, {{result.firstName}}</h1>
-    <img class="img-resize" src="{{result.avatarUrl}}">
 
-  {{#if result.projects}}
+<div class="container-fluid">
+  <div class="container-fluid">
+    
+      {{!-- <h2>Hi,</h2> --}}
+      <h1>Hi, {{result.firstName}}</h1>
+      <img class="img-resize" src="{{result.avatarUrl}}">
+   
+
+    {{#if result.projects}}
     <p>These are your projects:</p>
       
       {{#each result.projects}}
@@ -13,19 +18,24 @@
   {{else}}
     <p>You don't have projects yet.</p>
   {{/if}}
+  </div>
 
-  <button type="submit">
-  <a href="/search-project">Search Project</a>
-  </button>
-  <br>
-  <br>
-  
-  <button type="submit">
-  <a href="/create-project">Add Project</a>
-  </button>
-  <br>
-  <br>
-  
-  <button type="submit">
-  <a id="logout" href="/logout">Log out</a>
-  </button>
+
+  <div class="container-fluid d-flex justify-content-center">
+    <div class="col-6">
+      <button class="btn btn-outline-dark btn-block" type="submit">
+        <a href="/search-project">Search Project</a>
+      </button>
+    </div>
+
+    <div class="col-6">
+      <button class="btn btn-outline-dark btn-block" type="submit">
+        <a href="/create-project?user_id={{this._id}}">Create Project</a>
+      </button>
+    </div>
+  </div>
+
+  <div class="container-fluid bg">
+    this is the space for showing the projects listed
+  </div>
+</div>

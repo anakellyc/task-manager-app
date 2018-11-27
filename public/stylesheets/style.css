@@ -15,12 +15,15 @@ ul {
   list-style: none;
 }
 .container {
-  margin-bottom: 0;
+  margin-bottom: 10px;
   border-radius: 22px 22px 22px 22px;
   display: flex;
 }
 #container {
   margin-top: 10px;
+}
+.d-flex p {
+  margin-top: 16px;
 }
 .logo {
   color: red;
@@ -41,6 +44,7 @@ input:focus {
   outline: none;
   padding-left: 20px;
 }
+
 .btn {
   font-family: 'Noto Sans TC', sans-serif;
 }
@@ -64,4 +68,7 @@ a:hover {
 .img-resize{
   width: 60px;
   height: 60px;
+}
+.bg {
+  background-color: white
 }
