@@ -9,12 +9,12 @@ function capitalize (val) {
 }
 
 const projectSchema = new Schema({
-  name: {Type: String, required: true, set: capitalize},
-  description: {Type: String, required: true},
-  startDate: { Type: Date},
-  endDate: { Type: Date},
-  status: {Type: Boolean}
+  projectName: {type: String, required: true, set: capitalize},
+  description: {type: String, required: true},
+  startDate: { type: Date},
+  endDate: { type: Date},
+  status: {type: Boolean, default: false}
 });
 
-const Project = mongoose.model('Project', projectSchema);
+const Project = mongoose.model('projects', projectSchema);
 module.exports = Project;

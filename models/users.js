@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/task-manager')
 const Schema = mongoose.Schema;
+var ObjectId = mongoose.Schema.Types.ObjectId
 
 function capitalize (val) {
   if (typeof val !== 'string') {
@@ -15,7 +16,7 @@ const userSchema = new Schema({
   email    : { type: String},
   password: {type: String, minlength: 8},
   avatarUrl: { type: String, required: false, default: 'images/default-avatar.png' },
-  projects: {type: Array},
+  projects: [ { type : ObjectId, ref: "Project" } ],
 });
 
 const User = mongoose.model('users', userSchema);
