@@ -36,7 +36,8 @@ const bodyParser   = require('body-parser');
 const cookieParser = require('cookie-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser('MzaP7XtPSEmbB3AiBGxkeFO1cnxr/EPsvcsLmnqG03k='))
+var config = require('./config')
+app.use(cookieParser(config.cookieParserSecret))
 
 // default value for title local
 app.locals.title = 'Task Manager App';
@@ -49,6 +50,8 @@ app.use("/login", require("./routes/login"))
 app.use("/register", require("./routes/register"))
 app.use("/dashboard", require("./routes/dashboard"))
 app.use("/logout", require("./routes/logout"))
+app.use("/search-project", require("./routes/search-project"))
+app.use("/create-project", require("./routes/create-project"))
 
 app.get("/layout", function(req, res) {
   res.render("layout")

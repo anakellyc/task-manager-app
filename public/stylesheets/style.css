@@ -60,3 +60,8 @@ a:hover {
 .register {
   width: 50%;
 }
+
+.img-resize{
+  width: 60px;
+  height: 60px;
+}

@@ -1,0 +1,30 @@
+<h1>Create Project</h1>
+
+<form action="/create-project?user_id={{userId}}" method="post">
+    
+    <div>
+      <label for="projectName">Name</label>
+      <input type="text" name="projectName" placeholder="name">
+    </div>
+    <br>
+
+    <div>
+      <label for="description">Description</label>
+      <textarea type="text" name="description" placeholder="description"></textarea>
+    </div>
+    <br>
+
+    <div>
+      <label for="startDate">Email</label>
+      <input type="date" name="startDate">
+    </div>
+    <br>
+
+    <div>
+      <label for="endDate">Email</label>
+      <input type="date" name="endDate">
+    </div>
+    <br>
+
+    <input class="small-button" type="submit" value="submit">
+  </form>
