@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/task-manager')
 const Schema   = mongoose.Schema;
+var ObjectId = mongoose.Schema.Types.ObjectId
+//var Task = require("../models/tasks")
 
 function capitalize (val) {
   if (typeof val !== 'string') {
@@ -14,7 +16,8 @@ const projectSchema = new Schema({
   description: {type: String, required: true},
   startDate: { type: Date},
   endDate: { type: Date},
-  status: {type: Boolean, default: false}
+  status: {type: Boolean, default: false},
+  tasks: [ { type : ObjectId, ref: "tasks" } ],
 });
 
 const Project = mongoose.model('projects', projectSchema);

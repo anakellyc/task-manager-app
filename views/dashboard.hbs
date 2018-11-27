@@ -1,14 +1,11 @@
 <h1>Dashboard</h1>
+    <h1>Hi, {{result.firstName}}</h1>
+    <img class="img-resize" src="{{result.avatarUrl}}">
 
-  {{#each result}}
-    <h1>Hi, {{this.firstName}}</h1>
-    <img class="img-resize" src="{{this.avatarUrl}}">
-  {{/each}}
-
-  {{#if result.0.projects}}
+  {{#if result.projects}}
     <p>These are your projects:</p>
       
-      {{#each result.0.projects}}
+      {{#each result.projects}}
       <br>
       <p>{{this}}&nbsp&nbsp&nbsp&nbsp<br></p>
       <br>
