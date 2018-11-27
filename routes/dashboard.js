@@ -8,8 +8,10 @@ app.get('/', (req, res) => {
   debugger
   User.findOne({'_id': userId})
   .then((result) => {
+    console.log("one user:" , result)
     debugger
-    res.render('dashboard', {result})
+    res.render('dashboard', {result: result})
+    debugger
   })
   .catch((error) => {
     res.render('error');
