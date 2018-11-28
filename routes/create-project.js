@@ -4,6 +4,18 @@ var express = require("express")
 var app = express()
 
 app.get('/', function(req, res) {
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1; //January is 0!
+  var yyyy = today.getFullYear();
+  if(dd<10){
+          dd='0'+dd
+      } 
+      if(mm<10){
+          mm='0'+mm
+      } 
+  today = yyyy+'-'+mm+'-'+dd;
+
   if (req.signedCookies.loggedIn == "true") {
     res.render('create-project', {loggedIn:true})
   }
@@ -11,6 +23,7 @@ app.get('/', function(req, res) {
     res.redirect('/error')
   }
 })
+
 
 app.post('/', (req, res ) => {
   let userId = req.signedCookies.userId
@@ -21,9 +34,7 @@ app.post('/', (req, res ) => {
       Project.create( {projectName, description, startDate, endDate})
       .then((newproject) => {
         User.findOneAndUpdate({'_id': userId}, {"$push": {"projects": {projectName: newproject.projectName, projectId: newproject.id}}}, function (err, result) {
-          console.log("this result is?", result)
             res.redirect("/dashboard")
-
         })
       })
       .catch ((err) => {
