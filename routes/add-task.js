@@ -5,8 +5,9 @@ var Task = require("../models/tasks")
 var Project = require("../models/projects")
 
 app.get('/', function(req, res) {
+  let projectId = req.query.projectid
   if (req.signedCookies.loggedIn == "true") {
-    res.render('add-task', {loggedIn:true})
+    res.render('add-task', {loggedIn:true, projectid: projectId})
   }
   else {
     res.render('error')
@@ -14,39 +15,18 @@ app.get('/', function(req, res) {
 })
 
 app.post('/', (req, res ) => {
+  let projectId = req.query.projectid
   const { taskName, length, goals } = req.body;
-  Task.create( {taskName, length, goals})
-  .then((newtask) => {
-    console.log(newtask.taskName)
-    res.render("create-project", {loggedIn: true, newtask: newtask})
-  })
+      Task.create( {taskName, length, goals})
+      .then((newtask) => {
+        Project.findOneAndUpdate({'_id': projectId}, {"$push": {"tasks": {taskName: newtask.taskName, projectId: newtask.id}}}, function (err, result) {
+            res.redirect(`/detail-project?projectid=${projectId}`)
+        })
+      })
+      .catch ((err) => {
+        res.render("error")
+      })
 });
 
-// app.post('/', (req, res ) => {
-//   let projecId = req.signedCookies.userId
-//   const { taskName, length, goals } = req.body;
-//   Project.find({taskName: req.body.taskName})
-//   .then((task)=>{
-//     if (task.length == 0) {
-//       Task.create( {taskName, length, goals})
-//       .then((newtask) => {
-//         User.findOneAndUpdate({'_id': userId}, {"$push": {"tasks": {taskName: newtask.taskName, taskId: newtask.id}}}, function (err, result) {
-//           console.log("this result is?", result)
-//             res.redirect("/create-project")
-//         })
-//       })
-//       .catch ((err) => {
-//         res.render("error")
-//       })
-//     }
-//     else {
-//       res.cookie("existingtask", "true", {signed: true})
-//       res.render('add-task', {loggedIn: true, existingtask:true})
-//     }  
-//   })
-//   .catch ((err) => {
-//     res.render("error")
-//   })  
-// });
 
 module.exports = app

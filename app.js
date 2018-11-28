@@ -53,6 +53,7 @@ app.use("/search-project", require("./routes/search-project"))
 app.use("/create-project", require("./routes/create-project"))
 app.use("/add-task", require("./routes/add-task"))
 app.use("/search-people", require("./routes/search-people"))
+app.use("/detail-project", require("./routes/detail-project"))
 
 
 app.get("/layout", function(req, res) {

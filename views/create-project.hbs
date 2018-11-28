@@ -9,6 +9,12 @@
  
   </div>
 
+    <br>
+    {{#if existingproject}}
+      <p>Project name already exists, choose another one please</p>
+    {{/if}}
+     <br>
+
   <div class="register">
     <form action="/create-project" method="post">
         
@@ -19,10 +25,10 @@
       <textarea class="btn-block" type="text" name="description" placeholder="description"></textarea>
     
       <label for="startDate">Start Date</label><br>
-      <input class="btn-block" type="date" name="startDate">
+      <input class="btn-block" min="today" type="date" name="startDate">
     
       <label for="endDate">End Date</label><br>
-      <input class="btn-block" type="date" name="endDate">
+      <input class="btn-block" min=today type="date" name="endDate">
 
       <input class="btn btn-outline-dark btn-block" type="submit" value="Submit">
     </form>

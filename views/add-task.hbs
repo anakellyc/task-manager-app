@@ -1,6 +1,12 @@
 <h1>Add Task</h1>
 
-<form action="/add-task" method="post">
+ <br>
+    {{#if existingtask}}
+      <p>Task name already exists, choose another one please</p>
+    {{/if}}
+     <br>
+
+<form action="/add-task?projectid={{projectid}}" method="post">
     
     <div>
       <label for="taskName">Name</label>

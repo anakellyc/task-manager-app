@@ -1,1 +1,54 @@
+<h2>{{result.projectName}}</h2>
+<br>
+<p>Description: {{result.description}}</p>
+<br>
+<p>Start date: {{result.startDate}}</p>
+<br>
+<p>End date: {{result.endDate}}</p>
+
+<div class="container-fluid d-flex justify-content-center">
+    <div class="col-6">
+      <a href="/add-task?projectid={{result._id}}">
+        <button class="btn btn-outline-dark btn-block" type="submit">Add Task</button>
+      </a>
+    </div>
+
+    <div class="container-fluid d-flex justify-content-start">
+    <p>Project tasks:</p>
+  </div>
+
+  <div class="container-fluid bg">
+     {{#if result.tasks}}
+        {{#each result.tasks}}
+          <p><a href="/detail-task?taskid={{this.taskId}}"></a>{{this.taskName}}</p>
+        {{/each}}
+
+        {{else}}
+          <p>This project doesn't have any tasks yet.</p>
+      {{/if}}
+  </div>
+
+    <div class="col-6">
+      <a href="/search-people">
+        <button class="btn btn-outline-dark btn-block" type="submit">Add Contributor</button>
+      </a>
+    </div>
+</div>
+
+ <div class="container-fluid d-flex justify-content-start">
+    <p>Project contributors:</p>
+  </div>
+
+<div class="container-fluid bg">
+  <p>{{owner}}</p>
+  <br>
+        {{!-- {{#each result.tasks}}
+          <p><a href="/detail-task?taskid={{this.taskId}}"></a>{{this.taskName}}</p>
+          <br>
+        {{/each}} --}}
+
+  </div>
+
+
+
 
