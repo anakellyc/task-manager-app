@@ -6,6 +6,7 @@ body {
 div {
   margin: 10px;
   /* border: 1px red solid; */
+  border: 1px transparent solid;
 }
 nav {
   border-radius: 200px 200px 200px 200px;
@@ -75,6 +76,12 @@ a:hover {
 .bg p {
   margin: 10px 0;
 }
+.project_dashboard {
+  background-color: blanchedalmond;
+  border-radius: 22px 22px 22px 22px;
+  padding-left: 20px;
+  
+}
 .bg1 {
   background-color: blanchedalmond;
   justify-content: center;
@@ -87,3 +94,4 @@ input[type=text]#searchicon  {
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
 }
+

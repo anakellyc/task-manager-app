@@ -27,7 +27,10 @@
   <div class="container-fluid bg">
      {{#if result.projects}}
         {{#each result.projects}}
-          <p>{{this}}</p>
+        <div class="project_dashboard">
+          <p>{{this.projectName}}</p>
+        </div>
+          
         {{/each}}
 
         {{else}}

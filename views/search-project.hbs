@@ -2,21 +2,30 @@
 
 <div class="container-fluid">
 
- <form action="/search-project" method="POST">
-
+ 
   <label for="search">Wanna know which project are somewhere there?</label>
     
     <div class="d-flex container-fluid bg1">
       <div class="col-6">
-        <input id="searchicon" class="btn-block" type="text" name="search" placeholder="search">
+        <form action="/search-project" method="POST">
+           <input id="searchicon" class="btn-block" type="text" name="search" placeholder="Project name">
       </div>
+
       <div class="col-4">
         <button id="search-project-button" type="submit" class="btn btn-outline-dark btn-block">Search</button>
       </div>
+      </form>
     </div>
 
-  <div class="container-fluid bg">
-    dfgh
-  </div>
+    <div class="container-fluid bg">
+      
+          {{#each result}}
+          <div class="project_dashboard">
+            <p>{{this.projectName}}</p>
+            here comes form
+          </div>
+          {{/each}}
+        
+    </div>
 </div>
 

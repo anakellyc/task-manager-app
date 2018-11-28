@@ -2,6 +2,11 @@
 <div class="container d-flex justify-content-center">
   <div class="register">
     <h1>Create Project</h1>
+    
+   {{#if existingproject}}
+     <p>Project name already exists, choose another one please</p>
+   {{/if}}
+ 
   </div>
 
   <div class="register">
@@ -21,14 +26,8 @@
 
       <input class="btn btn-outline-dark btn-block" type="submit" value="Submit">
     </form>
-  </div>
+   </div>
+
 </div>
 
-  <h2>Task List</h2>
-  <button class="btn btn-outline-dark btn-block"><a href="/add-task">Add Task</a></button>
-
-  <h2>Contributors</h2>
-   <button class="btn btn-outline-dark btn-block"><a href="/search-people">Search Contributors</a></button>
-
-   <input class="small-button" type="submit" value="submit">
-  </form>
+  
