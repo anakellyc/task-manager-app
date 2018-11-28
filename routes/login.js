@@ -13,17 +13,18 @@ app.post("/", function(req, res) {
   User.findOne({email: email})
   .then((result)=> {
     if (!result) {
-      res.redirect("register")
-    }
+      res.redirect("/register")
+      return;
+      }
     else {
       bcrypt.compare(req.body.password, result.password, function(err, match) {
         if (match == true) {
           res.cookie("loggedIn", "true", {signed: true})
           res.cookie("wrongcredentials", "false", {signed: true})
           res.cookie("userId", `${result.id}`, {signed: true})
-          debugger
+          res.cookie("existingproject", "false", {signed: true})
+          res.cookie("existingtask", "false", {signed: true})
           res.render("dashboard", {loggedIn: true, result: result})
-          debugger
         }
         else {
           res.render("login", {wrongcredentials:true})

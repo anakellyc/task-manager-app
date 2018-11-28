@@ -17,7 +17,7 @@ const projectSchema = new Schema({
   startDate: { type: Date},
   endDate: { type: Date},
   status: {type: Boolean, default: false},
-  tasks: [ { type : ObjectId, ref: "tasks" } ],
+  tasks: { type : Array },
 });
 
 const Project = mongoose.model('projects', projectSchema);

@@ -5,13 +5,13 @@ var User = require("../models/users")
 
 app.get('/', (req, res) => {
   let userId = req.signedCookies.userId
-  debugger
+
+  var loggedIn;
+  req.signedCookies.loggedIn ? loggedIn = true : loggedIn = false;
+
   User.findOne({'_id': userId})
   .then((result) => {
-    console.log("one user:" , result)
-    debugger
-    res.render('dashboard', {result: result})
-    debugger
+    res.render('dashboard', {loggedIn:loggedIn, result: result})
   })
   .catch((error) => {
     res.render('error');

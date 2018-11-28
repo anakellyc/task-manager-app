@@ -8,27 +8,37 @@ app.get('/', function(req, res) {
     res.render('create-project', {loggedIn:true})
   }
   else {
-    res.render('create-project', {loggedIn:false}) //you can only create a project if you are logged in, right?
+    res.redirect('/error')
   }
 })
 
 app.post('/', (req, res ) => {
   let userId = req.signedCookies.userId
   const { projectName, description, startDate, endDate } = req.body;
-  Project.create( {projectName, description, startDate, endDate})
-  .then((newproject) => {
-    User.findOneAndUpdate({'_id': userId}, {"$push": {"projects": newproject.id}}, function (err, result) {
-      console.log(result)
-      // res.redirect("/dashboard")
-      setTimeout (function () {
-        res.render("dashboard", {loggedIn: true, result: result})
-      }, 1000)
-    })
+  Project.find({projectName: req.body.projectName})
+  .then((project)=>{
+    if (project.length == 0) {
+      Project.create( {projectName, description, startDate, endDate})
+      .then((newproject) => {
+        User.findOneAndUpdate({'_id': userId}, {"$push": {"projects": {projectName: newproject.projectName, projectId: newproject.id}}}, function (err, result) {
+          console.log("this result is?", result)
+            res.redirect("/dashboard")
+
+        })
+      })
+      .catch ((err) => {
+        res.render("error")
+      })
+    }
+    else {
+      res.cookie("existingproject", "true", {signed: true})
+      res.render('create-project', {loggedIn: true, existingproject:true})
+    }  
   })
   .catch ((err) => {
-    //debugger
-    res.send(err)
-  })
+    res.render("error")
+  })  
 });
+
 
 module.exports = app
