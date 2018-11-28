@@ -8,7 +8,7 @@ app.get('/', function(req, res) {
     res.render('create-project', {loggedIn:true})
   }
   else {
-    res.render('create-project', {loggedIn:false})
+    res.render('create-project', {loggedIn:false}) //you can only create a project if you are logged in, right?
   }
 })
 

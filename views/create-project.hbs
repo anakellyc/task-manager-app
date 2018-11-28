@@ -1,30 +1,25 @@
-<h1>Create Project</h1>
 
-<form action="/create-project" method="post">
+<div class="container d-flex justify-content-center">
+  <div class="register">
+    <h1>Create Project</h1>
+  </div>
+
+  <div class="register">
+    <form action="/create-project" method="post">
+        
+      <label for="projectName">Project Name</label><br>
+      <input class="btn-block" type="text" name="projectName" placeholder="project name">
     
-    <div>
-      <label for="projectName">Name</label>
-      <input type="text" name="projectName" placeholder="name">
-    </div>
-    <br>
+      <label for="description">Description</label><br>
+      <textarea class="btn-block" type="text" name="description" placeholder="description"></textarea>
+    
+      <label for="startDate">Start Date</label><br>
+      <input class="btn-block" type="date" name="startDate">
+    
+      <label for="endDate">End Date</label><br>
+      <input class="btn-block" type="date" name="endDate">
 
-    <div>
-      <label for="description">Description</label>
-      <textarea type="text" name="description" placeholder="description"></textarea>
-    </div>
-    <br>
-
-    <div>
-      <label for="startDate">Email</label>
-      <input type="date" name="startDate">
-    </div>
-    <br>
-
-    <div>
-      <label for="endDate">Email</label>
-      <input type="date" name="endDate">
-    </div>
-    <br>
-
-    <input class="small-button" type="submit" value="submit">
-  </form>
+      <input class="btn btn-outline-dark btn-block" type="submit" value="Submit">
+    </form>
+  </div>
+</div>
