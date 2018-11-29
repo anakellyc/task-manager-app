@@ -12,7 +12,7 @@
       </div>
 
       <div class="col-4">
-        <button id="search-project-button" type="submit" class="btn btn-outline-dark btn-block">Search</button>
+        <button type="submit" class="btn btn-outline-dark btn-block">Search</button>
       </div>
       </form>
     </div>
@@ -20,12 +20,21 @@
     <div class="container-fluid bg">
       
           {{#each result}}
-          <div class="project_dashboard">
+          <div class="project_dashboard d-flex justify-content-between">
             <p>{{this.projectName}}</p>
-            here comes form
+            {{!-- <div class="add btn">
+             use this one or the other
+            </div> --}}
+            <div class="addtest btn btn-outline-dark">
+            Add
+            </div>
+  
           </div>
           {{/each}}
-        
+
+            
+          
+    
     </div>
 </div>
 

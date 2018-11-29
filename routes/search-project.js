@@ -36,6 +36,19 @@ app.post('/', function(req, res) {
 // ///////////////////////////
 // var projectToAdd;
 // //button event {
+// let userId = req.signedCookies.userId
+
+// User.findOneAndUpdate({'_id': userId}, {"$push": {"projects": {projectName: projectToAdd.projectName, projectToAdd: newproject.id}}})
+//   // console.log("this result is?", result)
+//   .then((result) =>{
+//     // projectToAdd = result
+//     // console.log(result)
+
+//     if (req.signedCookies.loggedIn == "true") {
+//       res.render("dashboard", {result: result, loggedIn:true})
+//     }
+//     else {
+//       res.render("search-project", {result: result, loggedIn:false})
 // //let userId = req.signedCookies.userId
 
 // User.findOneAndUpdate({'_id': userId}, {"$push": {"projects": {projectName: projectToAdd.projectName, projectToAdd: newproject.id}}})
@@ -52,7 +65,7 @@ app.post('/', function(req, res) {
     
 // })
 
-//}
+// //}
 /////////////////////////////
 module.exports = app
 

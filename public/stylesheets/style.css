@@ -80,10 +80,9 @@ a:hover {
   background-color: blanchedalmond;
   border-radius: 22px 22px 22px 22px;
   padding-left: 20px;
-  
 }
 .bg1 {
-  background-color: blanchedalmond;
+  background-color: rgb(216, 236, 244);
   justify-content: center;
   align-content: center;
   border-radius: 22px 22px 22px 22px;
@@ -93,5 +92,16 @@ input[type=text]#searchicon  {
   background-position: 10px 10px; 
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
+}
+.add {
+  clip-path: polygon(0 35%, 35% 34%, 35% 0%, 65% 0%, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%);
+  background-color: rgb(74, 71, 71);
+  margin-right: 20px;
+}
+.addtest {
+  border-radius: 22px 22px 22px 22px;
+}
+.addtest:hover {
+  color: red;
 }
 

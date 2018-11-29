@@ -28,6 +28,7 @@ app.get('/', function(req, res) {
 app.post('/', (req, res ) => {
   let userId = req.signedCookies.userId
   const { projectName, description, startDate, endDate } = req.body;
+  
   Project.find({projectName: req.body.projectName})
   .then((project)=>{
     if (project.length == 0) {
