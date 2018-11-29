@@ -25,18 +25,16 @@
   </div>
 
   <div class="container-fluid bg">
-     {{#if result.projects}}
-        {{#each result.projects}}
-
+    {{#if result.projects}}
+      
+      {{#each result.projects}}
         <div class="project_dashboard">
-
           <p><a href="/detail-project?projectid={{this.projectId}}">{{this.projectName}}</p>
-  </div
+        </div>
+      {{/each}}
 
-        {{/each}}
-
-        {{else}}
-          <p>You don't have projects yet.</p>
-      {{/if}}
+      {{else}}
+      <p>You don't have projects yet.</p>
+    {{/if}}
   </div>
 </div>
