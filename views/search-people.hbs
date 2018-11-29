@@ -2,7 +2,7 @@
 
 <div class="container-fluid d-flex justify-content-center">
 
- <form action="/search-people" method="POST">
+ <form action="/search-people?projectid={{projectid}}" method="POST">
      
   <label for="search">Who are you looking for?</label><br>
     
@@ -12,4 +12,24 @@
     <div class="col-6">
       <button type="submit" class=" col-4 btn btn-outline-dark btn-block">Search</button>
     </div>
+ </form>
 </div>
+
+  <div class="container-fluid bg">
+    {{#each result}}
+      <div class="project_dashboard">
+        <p>{{this.firstName}} {{this.lastName}}</p>
+        <form action="/add-people?projectid={{../projectid}}&userid={{this._id}}" method="POST">
+        <input  name="newuser" type="hidden">
+        <button type="submit" class=" col-4 btn btn-outline-dark btn-block">Add</button>
+        </form>
+
+        {{!-- <button id="mandioca" type="submit" class=" col-4 btn btn-outline-dark btn-block">Add</button> --}}
+      </div>
+      
+    {{/each}}
+        
+  </div>
+
+  {{!-- <script src="cdnOFAxios..."></script>
+  <script src="javascript/addUser.js"></script> --}}

@@ -1,0 +1,21 @@
+{{!-- <h1>View Project</h1> --}}
+
+<h1>{{result.projectName}}
+<br></h1>
+
+<div class="register">
+<p>Description: {{result.description}}</p>
+<br>
+<p>Start date: {{result.startDate}}</p>
+<br>
+<p>End date: {{result.endDate}}</p>
+</div>
+
+<div class="register">
+<p>Project tasks:</p>
+
+{{#each result.tasks}}
+  <p>{{this.taskName}}</p>
+{{/each}}
+
+</div>

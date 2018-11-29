@@ -54,6 +54,8 @@ app.use("/create-project", require("./routes/create-project"))
 app.use("/add-task", require("./routes/add-task"))
 app.use("/search-people", require("./routes/search-people"))
 app.use("/detail-project", require("./routes/detail-project"))
+app.use("/add-people", require("./routes/add-people"))
+app.use("/view-project", require("./routes/view-project"))
 
 
 app.get("/layout", function(req, res) {

@@ -29,7 +29,7 @@
   </div>
 
     <div class="col-6">
-      <a href="/search-people">
+      <a href="/search-people?projectid={{result._id}}">
         <button class="btn btn-outline-dark btn-block" type="submit">Add Contributor</button>
       </a>
     </div>
@@ -40,12 +40,12 @@
   </div>
 
 <div class="container-fluid bg">
-  <p>{{owner}}</p>
-  <br>
-        {{!-- {{#each result.tasks}}
-          <p><a href="/detail-task?taskid={{this.taskId}}"></a>{{this.taskName}}</p>
+  {{!-- <p>{{owner}}</p>
+  <br> --}}
+        {{#each users}}
+          <p>{{this.firstName}} {{this.lastName}}</p>
           <br>
-        {{/each}} --}}
+        {{/each}}
 
   </div>
 
