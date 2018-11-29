@@ -33,9 +33,14 @@ app.post('/', (req, res ) => {
     if (project.length == 0) {
       Project.create( {projectName, description, startDate, endDate})
       .then((newproject) => {
-        User.findOneAndUpdate({'_id': userId}, {"$push": {"projects": {projectName: newproject.projectName, projectId: newproject.id}}}, function (err, result) {
+        User.findOneAndUpdate({'_id': userId}, {"$push": {"projects": {projectName: newproject.projectName, projectId: newproject.id}}})
+  
+          .then((result) => {
             res.redirect("/dashboard")
-        })
+          })
+          .catch ((err) => {
+            res.render("error")
+          })
       })
       .catch ((err) => {
         res.render("error")
