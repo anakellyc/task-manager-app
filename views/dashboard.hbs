@@ -32,6 +32,14 @@
           <p><a href="/detail-project?projectid={{this.projectId}}">{{this.projectName}}</p>
         </div>
       {{/each}}
+        
+        <a href="/view-project?projectid={{this.projectId}}">
+        <button class="btn btn-outline-dark btn-block" type="submit">View</button>
+        </a>
+
+        </div>
+
+        {{/each}}
 
       {{else}}
       <p>You don't have projects yet.</p>

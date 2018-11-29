@@ -21,7 +21,7 @@
       </div>
 
       <div>
-        <a href="/search-people">
+         <a href="/search-people?projectid={{result._id}}">
           <button class="btn btn-outline-dark btn-block" type="submit">Add Contributor</button>
         </a>
       </div>
@@ -52,18 +52,21 @@
     <p>Project contributors:</p>
 
     <div class="container-fluid bg">
-      <p>{{owner}}</p>
 
-          {{!-- {{#each result.tasks}}
-            <p><a href="/detail-task?taskid={{this.taskId}}"></a>{{this.taskName}}</p>
-            <br>
-          {{/each}} --}}
-    </div>
   </div>
 </div>
 
   
 
+<div class="container-fluid bg">
+  {{!-- <p>{{owner}}</p>
+  <br> --}}
+        {{#each users}}
+          <p>{{this.firstName}} {{this.lastName}}</p>
+          <br>
+        {{/each}}
+
+</div>
 
 
 
