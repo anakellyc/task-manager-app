@@ -105,3 +105,20 @@ input[type=text]#searchicon  {
   color: red;
 }
 
+.blocked {
+  pointer-events:none;
+  -webkit-appearance: none;
+  width:10px;
+  height:10px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items:center;
+  margin:0;
+  padding: 0;
+}
+
+.blocked:after{
+  content: '\2716';
+	color:black;
+}

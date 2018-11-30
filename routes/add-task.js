@@ -19,7 +19,7 @@ app.post('/', (req, res ) => {
   const { taskName, length, goals } = req.body;
       Task.create( {taskName, length, goals})
       .then((newtask) => {
-        Project.findOneAndUpdate({'_id': projectId}, {"$push": {"tasks": {taskName: newtask.taskName, projectId: newtask.id}}}, function (err, result) {
+        Project.findOneAndUpdate({'_id': projectId}, {"$push": {"tasks": newtask._id}}, function (err, result) {
             res.redirect(`/detail-project?projectid=${projectId}`)
         })
       })

@@ -29,15 +29,15 @@
       
       {{#each result.projects}}
         <div class="project_dashboard">
-          <p><a href="/detail-project?projectid={{this.projectId}}">{{this.projectName}}</p>
+          <p>{{this.projectName}}</p>
+          <a href="/detail-project?projectid={{this.projectId}}">
+          <button class="btn btn-outline-dark btn-block" type="submit">Edit</button>
+          </a>
         </div>
-      {{/each}}
         
         <a href="/view-project?projectid={{this.projectId}}">
-        <button class="btn btn-outline-dark btn-block" type="submit">View</button>
+        <button class="btn btn-outline-dark btn-block" type="submit">Status</button>
         </a>
-
-        </div>
 
         {{/each}}
 

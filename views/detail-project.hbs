@@ -39,7 +39,7 @@
     <div class="container-fluid bg">
      {{#if result.tasks}}
         {{#each result.tasks}}
-          <p><a href="/detail-task?taskid={{this.taskId}}"></a>{{this.taskName}}</p>
+          <p>{{this.taskName}}</p>
         {{/each}}
 
         {{else}}
