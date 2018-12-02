@@ -25,24 +25,23 @@
   </div>
 
   <div class="container-fluid bg">
-    {{#if result.projects}}
-      
-      {{#each result.projects}}
-        <div class="project_dashboard">
+    <div class="project_dashboard">
+      {{#if result.projects}}
+        {{#each result.projects}}
           <p>{{this.projectName}}</p>
           <a href="/detail-project?projectid={{this.projectId}}">
-          <button class="btn btn-outline-dark btn-block" type="submit">Edit</button>
+            <button class="btn btn-outline-dark btn-block" type="submit">Edit</button>
           </a>
-        </div>
-        
-        <a href="/view-project?projectid={{this.projectId}}">
-        <button class="btn btn-outline-dark btn-block" type="submit">Status</button>
-        </a>
+          
+          <a href="/view-project?projectid={{this.projectId}}">
+            <button class="btn btn-outline-dark btn-block" type="submit">Status</button>
+          </a>
 
         {{/each}}
 
-      {{else}}
-      <p>You don't have projects yet.</p>
-    {{/if}}
+        {{else}}
+          <p>You don't have projects yet.</p>
+      {{/if}}
+    </div>
   </div>
 </div>
