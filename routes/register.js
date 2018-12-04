@@ -28,8 +28,11 @@ app.post('/', upload.single('photo'), function(req, res) {
                 avatarUrl: `/uploads/${req.file.filename}`
               }) 
               .then((result)=>{
-                debugger
-                res.cookie("loggedIn", "true", {signed: true, unequalPassword: false})
+                res.cookie("loggedIn", "true", {signed: true})
+                res.cookie("wrongcredentials", "false", {signed: true})
+                res.cookie("userId", `${result.id}`, {signed: true})
+                res.cookie("existingproject", "false", {signed: true})
+                res.cookie("existingtask", "false", {signed: true})
                 res.render("dashboard", {loggedIn: true, result: result})
               })
               .catch((err)=>{

@@ -4,7 +4,9 @@
 
  
   <label for="search">Wanna know which project are somewhere there?</label>
-    
+    {{#if projectExists}}
+      <p>You got it already mate!</p>
+    {{/if}}
     <div class="d-flex container-fluid bg1">
       <div class="col-6">
         <form action="/search-project" method="POST">
@@ -22,12 +24,21 @@
           {{#each result}}
           <div class="project_dashboard d-flex justify-content-between">
             <p>{{this.projectName}}</p>
+            {{!-- this one is the + --}}
             {{!-- <div class="add btn">
              use this one or the other
             </div> --}}
-            <div class="addtest btn btn-outline-dark">
-            Add
-            </div>
+            <form action="add-project?projectid={{this._id}}" method="POST">
+              {{!-- <div class="addtest btn btn-outline-dark"> --}}
+            <input  name="addproject" type="hidden">
+            {{!-- like this one --}}
+             <button type="submit" class="btn btn-outline-dark btn-block">Add</button>
+            
+            {{!-- </div> --}}
+            
+
+            </form>
+            
   
           </div>
           {{/each}}

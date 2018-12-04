@@ -56,6 +56,7 @@ app.use("/search-people", require("./routes/search-people"))
 app.use("/detail-project", require("./routes/detail-project"))
 app.use("/add-people", require("./routes/add-people"))
 app.use("/view-project", require("./routes/view-project"))
+app.use("/add-project", require("./routes/add-project"))
 
 
 app.get("/layout", function(req, res) {

@@ -52,21 +52,20 @@
     <p>Project contributors:</p>
 
     <div class="container-fluid bg">
-
+      {{#each users}}
+        <p>{{this.firstName}} {{this.lastName}}</p>
+      {{/each}}
+    </div>
   </div>
-</div>
 
   
 
-<div class="container-fluid bg">
+{{!-- <div class="container-fluid bg"> --}}
   {{!-- <p>{{owner}}</p>
   <br> --}}
-        {{#each users}}
-          <p>{{this.firstName}} {{this.lastName}}</p>
-          <br>
-        {{/each}}
+       
 
-</div>
+{{!-- </div> --}}
 
 
 
