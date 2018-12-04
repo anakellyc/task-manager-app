@@ -1,5 +1,3 @@
-{{!-- <h1>View Project</h1> --}}
-
 <h1>{{result.projectName}}
 <br></h1>
 
@@ -14,8 +12,19 @@
 <div class="register">
 <p>Project tasks:</p>
 
+<form action="/view-project" method="POST">
 {{#each result.tasks}}
   <p>{{this.taskName}}</p>
+  <p>{{this.length}}</p>
+    {{#if this.owner}}
+    <input type="checkbox" checked class="blocked"> 
+    {{else}}
+    <input class="messageCheckbox" type="checkbox" name="selectedtask" value={{this._id}}>
+    {{/if}}
+  <p>{{this.owner.firstName}} {{this.owner.lastName}}</p>
 {{/each}}
-
+<button id="addOwner" type="submit" class=" col-4 btn btn-outline-dark btn-block">Submit</button>
+</form>
 </div>
+
+{{!-- <script src="javascript/addOwner.js"></script> --}}
