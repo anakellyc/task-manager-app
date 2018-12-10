@@ -14,8 +14,8 @@ function capitalize (val) {
 const projectSchema = new Schema({
   projectName: {type: String, required: true, set: capitalize},
   description: {type: String, required: true},
-  startDate: { type: Date},
-  endDate: { type: Date},
+  startDate: { type: String},
+  endDate: { type: String},
   status: {type: Boolean, default: false},
   tasks: [{ type: Schema.Types.ObjectId, ref: 'tasks' }],
 });

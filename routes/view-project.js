@@ -28,6 +28,7 @@ app.post('/', (req, res) => {
   let userId = req.signedCookies.userId
   let selectedtask = req.body.selectedtask;
 
+  if(selectedtask) {
   if(typeof req.body.selectedtask === "string"){
     selectedtask = [req.body.selectedtask]
   }
@@ -44,6 +45,10 @@ app.post('/', (req, res) => {
    }).then(()=>{
     res.redirect("/dashboard")
   })
+}
+else {
+  res.redirect("/dashboard")
+}
 })
 
 module.exports = app;

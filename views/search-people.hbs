@@ -1,28 +1,35 @@
-<h1>Search Contributors</h1>
 
-<div class="container-fluid d-flex justify-content-center">
+<div class="container-fluid">
 
- <form action="/search-people?projectid={{projectid}}" method="POST">
-     
-  <label for="search">Who are you looking for?</label><br>
+    <h1>Search Contributors</h1>
+
+ <div class="d-flex container-fluid bg1">
+   <div class="col-6">
+      <form action="/search-people?projectid={{projectid}}" method="POST">
+        <input class="btn-block" type="text" name="search" placeholder="search">
+    </div>
     
-    <div class="col-6">
-      <input  type="text" name="search" placeholder="search">
-    </div>
-    <div class="col-6">
-      <button type="submit" class=" col-4 btn btn-outline-dark btn-block">Search</button>
-    </div>
- </form>
-</div>
+      <div class="col-4">
+        <button type="submit" class="btn btn-outline-dark btn-block">Search</button>
+      </div>
+      </form>
+  </div>
 
   <div class="container-fluid bg">
     {{#each result}}
-      <div class="project_dashboard">
-        <p>{{this.firstName}} {{this.lastName}}</p>
-        <form action="/add-people?projectid={{../projectid}}&userid={{this._id}}" method="POST">
-        <input  name="newuser" type="hidden">
-        <button type="submit" class=" col-4 btn btn-outline-dark btn-block">Add</button>
-        </form>
+      <div class="project_dashboard d-flex justify-content-between">
+        <div class="col-8">
+          <p>{{this.firstName}} {{this.lastName}}</p>
+        </div>
+        
+
+        <div class="col-6">
+           <form action="/add-people?projectid={{../projectid}}&userid={{this._id}}" method="POST">
+            <input  name="newuser" type="hidden">
+            <button type="submit" class="col-4 btn btn-outline-dark btn-block">Add</button>
+          </form>
+        </div>
+       
 
         {{!-- <button id="mandioca" type="submit" class=" col-4 btn btn-outline-dark btn-block">Add</button> --}}
       </div>
@@ -30,6 +37,7 @@
     {{/each}}
         
   </div>
+</div>
 
   {{!-- <script src="cdnOFAxios..."></script>
   <script src="javascript/addUser.js"></script> --}}
