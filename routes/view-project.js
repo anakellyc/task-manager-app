@@ -28,6 +28,7 @@ app.post('/', (req, res) => {
   let userId = req.signedCookies.userId
   let selectedtask = req.body.selectedtask;
 
+  
   if(typeof req.body.selectedtask === "string"){
     selectedtask = [req.body.selectedtask]
   }

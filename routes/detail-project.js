@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
         if (err) res.render('error');
         res.render('detail-project', {loggedIn:loggedIn, result: result, users: users})
       })
-      
+    
     })
   .catch((error) => {
     throw error;
