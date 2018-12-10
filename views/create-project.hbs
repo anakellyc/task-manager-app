@@ -1,33 +1,30 @@
-
 <div class="container d-flex justify-content-center">
   <div class="register">
     <h1>Create Project</h1>
-    
-   {{#if existingproject}}
-     <p>Project name already exists, choose another one please</p>
-   {{/if}}
-  
+
+    {{#if existingproject}}
+    <p>Project name already exists, choose another one please</p>
+    {{/if}}
+
   </div>
-  
+
   <div class="register">
     <form action="/create-project" method="post">
-        
+
       <label for="projectName">Project Name</label><br>
       <input class="btn-block" type="text" name="projectName" placeholder="project name">
-    
+
       <label for="description">Description</label><br>
       <textarea class="btn-block" type="text" name="description" placeholder="description"></textarea>
-    
+
       <label for="startDate">Start Date</label><br>
-      <input class="btn-block" type="text" id="startDate" name="startDate">
-    
+      <input class="btn-block" type="text" name="startDate" id="startDate">
+
       <label for="endDate">End Date</label><br>
-      <input class="btn-block" type="text" id="endDate" name="endDate">
+      <input class="btn-block" type="text" name="endDate" id="endDate">
 
       <input class="btn btn-outline-dark btn-block" type="submit" value="Submit">
     </form>
-   </div>
-  
-</div>
+  </div>
 
-  
+</div>

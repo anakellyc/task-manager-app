@@ -1,8 +1,7 @@
-
 <div class="container-fluid">
   <div class="container-fluid">
-      <h2>Hi, {{result.firstName}}</h2>
-      <img class="img-resize" src="{{result.avatarUrl}}">
+    <h2>Hi, {{result.firstName}}</h2>
+    <img class="img-resize" src="{{result.avatarUrl}}">
   </div>
 
 
@@ -25,23 +24,37 @@
   </div>
 
   <div class="container-fluid bg">
-    <div class="project_dashboard">
-      {{#if result.projects}}
-        {{#each result.projects}}
-          <p>{{this.projectName}}</p>
-          <a href="/detail-project?projectid={{this.projectId}}">
+    {{#if result.projects}}
+
+    {{#each result.projects}}
+    <div class="project_dashboard d-flex justify-content-between">
+      <div class="d-flex justify-content-start">
+        <p>{{this.projectName}}</p>
+      </div>
+
+
+      <div class="d-flex justify-content-end">
+        <a href="/detail-project?projectid={{this.projectId}}">
+          <div>
             <button class="btn btn-outline-dark btn-block" type="submit">Edit</button>
-          </a>
-          
-          <a href="/view-project?projectid={{this.projectId}}">
+          </div>
+
+        </a>
+        <a href="/view-project?projectid={{this.projectId}}">
+          <div>
             <button class="btn btn-outline-dark btn-block" type="submit">Status</button>
-          </a>
+          </div>
 
-        {{/each}}
-
-        {{else}}
-          <p>You don't have projects yet.</p>
-      {{/if}}
+        </a>
+      </div>
     </div>
+
+    {{/each}}
+
+
+    {{else}}
+    <p>You don't have projects yet.</p>
+    {{/if}}
+
   </div>
 </div>

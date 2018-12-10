@@ -11,6 +11,7 @@ app.get('/', (req, res) => {
 
   User.findOne({'_id': userId})
   .then((result) => {
+    debugger
     res.render('dashboard', {loggedIn:loggedIn, result: result})
   })
   .catch((error) => {
