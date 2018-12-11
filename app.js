@@ -17,15 +17,6 @@ mongoose
 const express = require("express");
 const app = express();
 
-// app.use(require('node-sass-middleware')({
-//   src:  path.join(__dirname, 'public'),
-//   dest: path.join(__dirname, 'public'),
-//   sourceMap: true
-// }));
-
-// const app_name = require('./package.json').name;
-// const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
-
 //HBS
 const hbs = require("hbs");
 hbs.registerPartials(__dirname + "/views/partials");
