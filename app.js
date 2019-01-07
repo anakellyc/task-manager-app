@@ -13,6 +13,7 @@ mongoose
   .catch(err => {
     console.error("Error connecting to mongo", err);
   });
+
 // Express View engine setup
 const express = require("express");
 const app = express();
